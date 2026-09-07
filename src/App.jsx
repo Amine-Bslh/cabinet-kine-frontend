@@ -1,9 +1,9 @@
-import Login from './pages/Login';
+import Patients from './pages/Patients';
 
 function App() {
     return (
         <div>
-            <Login />
+            <Patients />
         </div>
     );
 }
