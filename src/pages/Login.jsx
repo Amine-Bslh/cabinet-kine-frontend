@@ -8,7 +8,8 @@ function Login() {
     function handleLogin() {
         login(email, motDePasse)
             .then((response) => {
-                console.log('Token recu :', response.data);
+                localStorage.setItem('token', response.data);
+                console.log('Connexion reussie, token stocke');
             })
             .catch((error) => {
                 console.log('Erreur de connexion :', error);
