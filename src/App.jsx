@@ -1,9 +1,11 @@
+import Login from './pages/Login';
+
 function App() {
-  return (
-      <div>
-        <h1>Cabinet Kiné</h1>
-      </div>
-  );
+    return (
+        <div>
+            <Login />
+        </div>
+    );
 }
 
 export default App;
