@@ -1,15 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../services/authService';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [motDePasse, setMotDePasse] = useState('');
+    const navigate = useNavigate();
 
     function handleLogin() {
         login(email, motDePasse)
             .then((response) => {
                 localStorage.setItem('token', response.data);
-                console.log('Connexion reussie, token stocke');
+                navigate('/patients');
             })
             .catch((error) => {
                 console.log('Erreur de connexion :', error);
