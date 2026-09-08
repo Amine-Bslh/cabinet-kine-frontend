@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Patients from './pages/Patients';
+import RouteProtegee from './components/RouteProtegee';
 
 function App() {
     return (
@@ -8,7 +9,14 @@ function App() {
             <Routes>
                 <Route path="/" element={<Navigate to="/login" />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/patients" element={<Patients />} />
+                <Route
+                    path="/patients"
+                    element={
+                        <RouteProtegee>
+                            <Patients />
+                        </RouteProtegee>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
