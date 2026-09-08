@@ -111,3 +111,38 @@ li {
   border-left: 4px solid var(--primary);
   box-shadow: 0 2px 6px rgba(38, 70, 83, 0.08);
 }
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 24px;
+  margin-bottom: 16px;
+}
+
+.checkbox-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.checkbox-chip:hover {
+  border-color: var(--primary);
+}
+
+.checkbox-chip.selected {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.checkbox-chip input {
+  display: none;
+}

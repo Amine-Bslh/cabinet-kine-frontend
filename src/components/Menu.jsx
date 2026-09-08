@@ -16,9 +16,15 @@ function Menu() {
         <nav>
             <Link to="/patients">Patients</Link>
             {' | '}
+            <Link to="/diagnostics">Diagnostics</Link>
+            {' | '}
+            <Link to="/cures">Cures</Link>
+            {' | '}
             <Link to="/rendezvous">Rendez-vous</Link>
             {' | '}
             <Link to="/seances">Seances</Link>
+            {' | '}
+            <Link to="/prestations">Prestations</Link>
             {' | '}
             <Link to="/paiements">Paiements</Link>
             {role === 'ADMIN' && (
