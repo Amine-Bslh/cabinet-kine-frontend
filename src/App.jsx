@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Patients from './pages/Patients';
+import Utilisateurs from './pages/Utilisateurs';
 import RouteProtegee from './components/RouteProtegee';
 
 function App() {
@@ -14,6 +15,14 @@ function App() {
                     element={
                         <RouteProtegee>
                             <Patients />
+                        </RouteProtegee>
+                    }
+                />
+                <Route
+                    path="/utilisateurs"
+                    element={
+                        <RouteProtegee>
+                            <Utilisateurs />
                         </RouteProtegee>
                     }
                 />

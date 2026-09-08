@@ -34,7 +34,7 @@ function Patients() {
             <button onClick={handleLogout}>Se deconnecter</button>
 
             {role === 'ADMIN' && (
-                <button>Gestion des utilisateurs</button>
+                <button onClick={() => navigate('/utilisateurs')}>Gestion des utilisateurs</button>
             )}
 
             <ul>
