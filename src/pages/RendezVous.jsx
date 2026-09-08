@@ -42,32 +42,49 @@ function RendezVousPage() {
             <h1>Rendez-vous</h1>
 
             <h2>Creer un rendez-vous</h2>
-            <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
-                <option value="">-- Choisir un patient --</option>
-                {patients.map((patient) => (
-                    <option key={patient.id} value={patient.id}>
-                        {patient.nom} {patient.prenom}
-                    </option>
-                ))}
-            </select>
-            <input
-                type="datetime-local"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Statut"
-                value={statut}
-                onChange={(e) => setStatut(e.target.value)}
-            />
-            <button onClick={handleCreer}>Creer</button>
+            <div className="form-card">
+                <div className="form-field">
+                    <label>Patient</label>
+                    <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
+                        <option value="">-- Choisir un patient --</option>
+                        {patients.map((patient) => (
+                            <option key={patient.id} value={patient.id}>
+                                {patient.nom} {patient.prenom}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-field">
+                    <label>Date et heure</label>
+                    <input
+                        type="datetime-local"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Statut</label>
+                    <input
+                        type="text"
+                        placeholder="Statut"
+                        value={statut}
+                        onChange={(e) => setStatut(e.target.value)}
+                    />
+                </div>
+                <button onClick={handleCreer}>Creer</button>
+            </div>
 
             <h2>Liste des rendez-vous</h2>
-            <ul>
+            <ul className="liste-cards">
                 {rendezVous.map((rdv) => (
-                    <li key={rdv.id}>
-                        {rdv.date} - {rdv.statut} {rdv.patient ? `- ${rdv.patient.nom}` : ''}
+                    <li key={rdv.id} className="card-item">
+                        <div className="card-item-title">
+                            {rdv.date}
+                            <span className="card-badge">{rdv.statut}</span>
+                        </div>
+                        <div className="card-item-subtitle">
+                            {rdv.patient ? `${rdv.patient.nom} ${rdv.patient.prenom}` : ''}
+                        </div>
                     </li>
                 ))}
             </ul>

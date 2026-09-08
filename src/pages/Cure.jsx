@@ -45,39 +45,58 @@ function CurePage() {
             <h1>Cures</h1>
 
             <h2>Creer une cure</h2>
-            <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
-                <option value="">-- Choisir un patient --</option>
-                {patients.map((patient) => (
-                    <option key={patient.id} value={patient.id}>
-                        {patient.nom} {patient.prenom}
-                    </option>
-                ))}
-            </select>
-            <input
-                type="date"
-                value={dateDebut}
-                onChange={(e) => setDateDebut(e.target.value)}
-            />
-            <input
-                type="number"
-                placeholder="Nombre de seances prevues"
-                value={nombreSeancesPrevues}
-                onChange={(e) => setNombreSeancesPrevues(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Statut"
-                value={statut}
-                onChange={(e) => setStatut(e.target.value)}
-            />
-            <button onClick={handleCreer}>Creer</button>
+            <div className="form-card">
+                <div className="form-field">
+                    <label>Patient</label>
+                    <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
+                        <option value="">-- Choisir un patient --</option>
+                        {patients.map((patient) => (
+                            <option key={patient.id} value={patient.id}>
+                                {patient.nom} {patient.prenom}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-field">
+                    <label>Date de debut</label>
+                    <input
+                        type="date"
+                        value={dateDebut}
+                        onChange={(e) => setDateDebut(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Nb. seances prevues</label>
+                    <input
+                        type="number"
+                        placeholder="Ex: 10"
+                        value={nombreSeancesPrevues}
+                        onChange={(e) => setNombreSeancesPrevues(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Statut</label>
+                    <select value={statut} onChange={(e) => setStatut(e.target.value)}>
+                        <option value="en cours">En cours</option>
+                        <option value="terminee">Terminee</option>
+                        <option value="annulee">Annulee</option>
+                    </select>
+                </div>
+                <button onClick={handleCreer}>Creer</button>
+            </div>
 
             <h2>Liste des cures</h2>
-            <ul>
+            <ul className="liste-cards">
                 {cures.map((cure) => (
-                    <li key={cure.id}>
-                        {cure.dateDebut} - {cure.nombreSeancesPrevues} seances - {cure.statut}
-                        {cure.patient ? ` - ${cure.patient.nom}` : ''}
+                    <li key={cure.id} className="card-item">
+                        <div className="card-item-title">
+                            {cure.dateDebut}
+                            <span className="card-badge">{cure.statut}</span>
+                        </div>
+                        <div className="card-item-subtitle">
+                            {cure.nombreSeancesPrevues} seances prevues
+                            {cure.patient ? ` - ${cure.patient.nom}` : ''}
+                        </div>
                     </li>
                 ))}
             </ul>

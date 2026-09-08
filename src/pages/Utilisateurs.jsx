@@ -45,35 +45,53 @@ function Utilisateurs() {
             <h1>Gestion des utilisateurs</h1>
 
             <h2>Creer un utilisateur</h2>
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Nom"
-                value={nom}
-                onChange={(e) => setNom(e.target.value)}
-            />
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-                <option value="USER">USER</option>
-                <option value="ADMIN">ADMIN</option>
-            </select>
-            <input
-                type="password"
-                placeholder="Mot de passe"
-                value={motDePasse}
-                onChange={(e) => setMotDePasse(e.target.value)}
-            />
-            <button onClick={handleCreer}>Creer</button>
+            <div className="form-card">
+                <div className="form-field">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Nom</label>
+                    <input
+                        type="text"
+                        placeholder="Nom"
+                        value={nom}
+                        onChange={(e) => setNom(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Role</label>
+                    <select value={role} onChange={(e) => setRole(e.target.value)}>
+                        <option value="USER">USER</option>
+                        <option value="ADMIN">ADMIN</option>
+                    </select>
+                </div>
+                <div className="form-field">
+                    <label>Mot de passe</label>
+                    <input
+                        type="password"
+                        placeholder="Mot de passe"
+                        value={motDePasse}
+                        onChange={(e) => setMotDePasse(e.target.value)}
+                    />
+                </div>
+                <button onClick={handleCreer}>Creer</button>
+            </div>
 
             <h2>Liste des utilisateurs</h2>
-            <ul>
+            <ul className="liste-cards">
                 {utilisateurs.map((utilisateur) => (
-                    <li key={utilisateur.id}>
-                        {utilisateur.nom} - {utilisateur.email} - {utilisateur.role}
+                    <li key={utilisateur.id} className="card-item">
+                        <div className="card-item-title">
+                            {utilisateur.nom}
+                            <span className="card-badge">{utilisateur.role}</span>
+                        </div>
+                        <div className="card-item-subtitle">{utilisateur.email}</div>
                     </li>
                 ))}
             </ul>

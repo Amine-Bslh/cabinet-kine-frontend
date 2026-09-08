@@ -69,19 +69,27 @@ function DiagnosticPage() {
             <h1>Diagnostics corporels</h1>
 
             <h2>Creer un diagnostic</h2>
-            <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
-                <option value="">-- Choisir un patient --</option>
-                {patients.map((patient) => (
-                    <option key={patient.id} value={patient.id}>
-                        {patient.nom} {patient.prenom}
-                    </option>
-                ))}
-            </select>
-            <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-            />
+            <div className="form-card">
+                <div className="form-field">
+                    <label>Patient</label>
+                    <select value={patientId} onChange={(e) => setPatientId(e.target.value)}>
+                        <option value="">-- Choisir un patient --</option>
+                        {patients.map((patient) => (
+                            <option key={patient.id} value={patient.id}>
+                                {patient.nom} {patient.prenom}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-field">
+                    <label>Date</label>
+                    <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                    />
+                </div>
+            </div>
 
             <h3>Zones problematiques</h3>
             <div className="checkbox-grid">
@@ -117,14 +125,19 @@ function DiagnosticPage() {
                 ))}
             </div>
 
-            <button onClick={handleCreer}>Creer</button>
+            <div style={{ padding: '0 24px', marginBottom: '16px' }}>
+                <button onClick={handleCreer}>Creer</button>
+            </div>
 
             <h2>Liste des diagnostics</h2>
-            <ul>
+            <ul className="liste-cards">
                 {diagnostics.map((diagnostic) => (
-                    <li key={diagnostic.id}>
-                        {diagnostic.date} - {diagnostic.zonesProblematiques} - {diagnostic.prestationsRecommandees}
-                        {diagnostic.patient ? ` - ${diagnostic.patient.nom}` : ''}
+                    <li key={diagnostic.id} className="card-item">
+                        <div className="card-item-title">{diagnostic.date}</div>
+                        <div className="card-item-subtitle">
+                            {diagnostic.zonesProblematiques} — {diagnostic.prestationsRecommandees}
+                            {diagnostic.patient ? ` - ${diagnostic.patient.nom}` : ''}
+                        </div>
                     </li>
                 ))}
             </ul>

@@ -19,21 +19,31 @@ function Login() {
     }
 
     return (
-        <div>
-            <h1>Connexion</h1>
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Mot de passe"
-                value={motDePasse}
-                onChange={(e) => setMotDePasse(e.target.value)}
-            />
-            <button onClick={handleLogin}>Se connecter</button>
+        <div className="login-page">
+            <div className="login-card">
+                <h1 className="login-title">Cabinet Kine</h1>
+                <p className="login-subtitle">Connectez-vous a votre espace</p>
+
+                <div className="form-field">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="form-field">
+                    <label>Mot de passe</label>
+                    <input
+                        type="password"
+                        placeholder="Mot de passe"
+                        value={motDePasse}
+                        onChange={(e) => setMotDePasse(e.target.value)}
+                    />
+                </div>
+                <button onClick={handleLogin} className="login-button">Se connecter</button>
+            </div>
         </div>
     );
 }
