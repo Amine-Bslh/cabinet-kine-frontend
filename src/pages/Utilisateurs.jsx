@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { listerUtilisateurs, creerUtilisateur } from '../services/utilisateurService';
+import Menu from '../components/Menu';
 
 function Utilisateurs() {
     const [utilisateurs, setUtilisateurs] = useState([]);
@@ -40,6 +41,7 @@ function Utilisateurs() {
 
     return (
         <div>
+            <Menu />
             <h1>Gestion des utilisateurs</h1>
 
             <h2>Creer un utilisateur</h2>
