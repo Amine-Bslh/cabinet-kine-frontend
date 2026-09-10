@@ -14,4 +14,19 @@ export function creerRendezVous(rendezVous) {
     return axios.post(API_URL, rendezVous, {
         headers: { Authorization: `Bearer ${token}` },
     });
+
+}
+
+export function modifierRendezVous(id, rendezVous) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, rendezVous, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerRendezVous(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
 }

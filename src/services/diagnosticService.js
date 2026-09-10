@@ -15,3 +15,18 @@ export function creerDiagnostic(diagnostic) {
         headers: { Authorization: `Bearer ${token}` },
     });
 }
+
+export function modifierDiagnostic(id, diagnostic) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, diagnostic, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerDiagnostic(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+

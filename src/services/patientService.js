@@ -11,3 +11,33 @@ export function listerPatients() {
         },
     });
 }
+
+export function creerPatient(patient) {
+    const token = localStorage.getItem('token');
+
+    return axios.post(API_URL, patient, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}
+
+export function modifierPatient(id, patient) {
+    const token = localStorage.getItem('token');
+
+    return axios.put(`${API_URL}/${id}`, patient, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}
+
+export function supprimerPatient(id) {
+    const token = localStorage.getItem('token');
+
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}

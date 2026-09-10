@@ -21,3 +21,17 @@ export function creerUtilisateur(utilisateur) {
         },
     });
 }
+
+export function modifierUtilisateur(id, utilisateur) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, utilisateur, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerUtilisateur(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}

@@ -15,3 +15,17 @@ export function creerPaiement(paiement) {
         headers: { Authorization: `Bearer ${token}` },
     });
 }
+
+export function modifierPaiement(id, paiement) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, paiement, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerPaiement(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}

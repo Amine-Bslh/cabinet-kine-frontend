@@ -14,4 +14,20 @@ export function creerSeance(seance) {
     return axios.post(API_URL, seance, {
         headers: { Authorization: `Bearer ${token}` },
     });
+
+
+}
+
+export function modifierSeance(id, seance) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, seance, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerSeance(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
 }

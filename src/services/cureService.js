@@ -15,3 +15,17 @@ export function creerCure(cure) {
         headers: { Authorization: `Bearer ${token}` },
     });
 }
+
+export function modifierCure(id, cure) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, cure, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerCure(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}

@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../services/authService';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {login} from '../services/authService';
+import Logo from '../components/Logo';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -21,7 +22,10 @@ function Login() {
     return (
         <div className="login-page">
             <div className="login-card">
-                <h1 className="login-title">Cabinet Kine</h1>
+                <div style={{display: 'flex', justifyContent: 'center', marginBottom: '4px'}}>
+                    <Logo size={56}/>
+                </div>
+                <h1 className="login-title">Centre Kine Forme</h1>
                 <p className="login-subtitle">Connectez-vous a votre espace</p>
 
                 <div className="form-field">
@@ -42,7 +46,15 @@ function Login() {
                         onChange={(e) => setMotDePasse(e.target.value)}
                     />
                 </div>
-                <button onClick={handleLogin} className="login-button">Se connecter</button>
+                <button onClick={handleLogin} className="login-button">
+  <span className="login-button-icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+      <rect x="4" y="11" width="16" height="9" rx="2"/>
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" strokeLinecap="round"/>
+    </svg>
+  </span>
+                    <span className="login-button-text">Se connecter</span>
+                </button>
             </div>
         </div>
     );
