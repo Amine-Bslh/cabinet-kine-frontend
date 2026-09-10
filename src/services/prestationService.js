@@ -15,3 +15,17 @@ export function creerPrestation(prestation) {
         headers: { Authorization: `Bearer ${token}` },
     });
 }
+
+export function modifierPrestation(id, prestation) {
+    const token = localStorage.getItem('token');
+    return axios.put(`${API_URL}/${id}`, prestation, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
+
+export function supprimerPrestation(id) {
+    const token = localStorage.getItem('token');
+    return axios.delete(`${API_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+}
